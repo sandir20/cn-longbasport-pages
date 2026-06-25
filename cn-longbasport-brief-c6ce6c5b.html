@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙八体育 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Hero 横幅 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem 3rem 2.2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e6e4de;
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #1e2a2f;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5b5b5b;
+            border-top: 1px solid #e0ddd5;
+            padding-top: 1.2rem;
+            margin-top: 0.8rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 背景说明卡片 */
+        .context-card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e2dfd8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .context-card h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #2f3a3f;
+            margin-bottom: 1rem;
+            border-left: 4px solid #84968b;
+            padding-left: 1rem;
+        }
+
+        .context-card p {
+            color: #3d3d3d;
+            margin-bottom: 0.8rem;
+        }
+
+        /* 三段自然介绍 —— 卡片网格 */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2.2rem;
+        }
+
+        @media (min-width: 680px) {
+            .intro-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+            border: 1px solid #e6e3db;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .intro-card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .intro-card h3 {
+            font-size: 1.25rem;
+            font-weight: 450;
+            color: #253237;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intro-card h3::before {
+            content: "▹";
+            color: #84968b;
+            font-size: 1.3rem;
+        }
+
+        .intro-card p {
+            font-size: 0.98rem;
+            color: #3e3e3e;
+        }
+
+        /* FAQ 摘要 (轻量) */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.6rem 2rem 1.8rem 2rem;
+            border: 1px solid #e6e3db;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #2f3a3f;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #84968b;
+            padding-left: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #e2dfd8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item strong {
+            font-weight: 500;
+            color: #253237;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item p {
+            color: #3d3d3d;
+            font-size: 0.95rem;
+        }
+
+        /* 页尾访问提示 */
+        .site-footer {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e6e4de;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .site-footer p {
+            font-size: 1.1rem;
+            color: #2f3a3f;
+            margin-bottom: 0.4rem;
+        }
+
+        .site-footer .note {
+            font-size: 0.9rem;
+            color: #727272;
+        }
+
+        .site-footer a {
+            color: #2f5f6b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #b3c2bb;
+        }
+
+        .site-footer a:hover {
+            border-bottom: 1px solid #2f5f6b;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2dfd8;
+            margin: 1.6rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- Hero 横幅 -->
+    <div class="hero">
+        <h1>龙八体育 · 简明指南</h1>
+        <div class="sub">
+            一项面向运动与资讯的实用参考 —— 从基础认知到快速访问路径
+        </div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="context-card">
+        <h2>背景与定位</h2>
+        <p>
+            <span style="font-weight:450;">龙八体育</span> 并非单一赛事或品牌，而是一个聚合体育资讯、赛事动态与互动社区的专题平台。其内容覆盖主流竞技项目、运动员追踪以及赛事数据分析，适合希望系统了解体育信息的用户。平台强调信息整合与访问效率，在众多体育类站点中形成了自身的辨识度。
+        </p>
+        <p>
+            本页以简明指南的形式，梳理 <span style="font-weight:450;">龙八体育</span> 的核心特点、适用场景以及访问注意事项，帮助新用户快速建立认知框架。
+        </p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="intro-grid">
+        <div class="intro-card">
+            <h3>内容结构</h3>
+            <p>
+                平台将体育资讯划分为实时快讯、深度专题与数据统计三大模块。用户可以根据兴趣选择浏览赛事前瞻、赛后复盘或运动员背景资料。所有内容均按时间线与运动类别双重索引，减少信息过载。
+            </p>
+        </div>
+        <div class="intro-card">
+            <h3>访问特点</h3>
+            <p>
+                页面设计偏重信息层级清晰，导航以运动项目与赛事阶段为主线。对于常关注特定联赛或锦标赛的用户，可通过目录快速定位。此外，站内设有简要的术语解释区，降低新手理解门槛。
+            </p>
+        </div>
+        <div class="intro-card">
+            <h3>日常使用场景</h3>
+            <p>
+                无论是赛前查阅对阵记录、赛中追踪实时数据，还是赛后查看综述性分析，<span style="font-weight:450;">龙八体育</span> 均提供了相对连贯的信息流。适合体育爱好者、数据分析入门者以及需要快速获取赛事概览的群体。
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <strong>是否需要注册才能浏览全部内容？</strong>
+            <p>大部分资讯与数据页面可直接访问，部分深度专题或互动功能可能需要简单注册。建议先浏览开放内容，再根据需求决定是否注册。</p>
+        </div>
+        <div class="faq-item">
+            <strong>信息更新频率如何？</strong>
+            <p>实时快讯类内容通常在赛事进行期间或结束后数分钟内更新。专题类内容按周或按赛事周期发布，保持信息节奏的稳定性。</p>
+        </div>
+        <div class="faq-item">
+            <strong>移动端访问体验是否一致？</strong>
+            <p>页面采用响应式布局，在手机与平板设备上可正常阅读。部分数据表格会调整为横向滚动或折叠模式，建议横屏查看复杂数据。</p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="site-footer">
+        <p>
+            若希望进一步探索体育资讯与赛事数据，可前往 
+            <a href="https://cn-longbasport.com" target="_blank" rel="noopener noreferrer">龙八体育</a> 
+            获取更完整的界面与功能。
+        </p>
+        <p class="note">
+            建议在浏览器中直接输入地址，或通过书签保存。注意核对网址，避免混淆相似域名。
+        </p>
+        <hr>
+        <p style="font-size:0.85rem; color:#7a7a7a;">
+            本页为独立介绍页，内容基于公开信息整理，仅供参考。
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
